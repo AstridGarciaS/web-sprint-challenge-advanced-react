@@ -1,10 +1,22 @@
 import React from 'react'
+import axios from 'axios'
+import * as yup from 'yup'
 
 // Suggested initial states
 const initialMessage = ''
 const initialEmail = ''
 const initialSteps = 0
 const initialIndex = 4 // the index the "B" is at
+const initialX = 2
+const initial = 2
+
+const formSchema = yup.object().shape({
+  formValue:yup
+  .string()
+  .email('Must be a valid email')
+  .required('Email is required')
+  .notOneOf(['foo@bar.baz'], 'foo@bar.baz failure #20')
+})
 
 export default function AppFunctional(props) {
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
