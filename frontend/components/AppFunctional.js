@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import * as yup from 'yup'
 
@@ -8,7 +8,7 @@ const initialEmail = ''
 const initialSteps = 0
 const initialIndex = 4 // the index the "B" is at
 const initialX = 2
-const initial = 2
+const initialY = 2
 
 const formSchema = yup.object().shape({
   formValue:yup
@@ -21,6 +21,14 @@ const formSchema = yup.object().shape({
 export default function AppFunctional(props) {
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
   // You can delete them and build your own logic from scratch.
+
+  const [ x, setX ] = useState(initialX)
+  const [ y, setY ] = useState(initialY)
+  const [ xy, setXY ] = useState(initialIndex)
+
+  const [ moves, setMOves ] = useState(0)
+  const [ messages, setMessages] = useState(initialMessage)
+  const [ formValue, setFormValue ] = useState('')
 
   function getXY() {
     // It it not necessary to have a state to track the coordinates.
